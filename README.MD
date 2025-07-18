@@ -27,6 +27,53 @@ This project implements a robust Intrusion Detection System (IDS) that utilizes 
 
 ---
 
+## 🧪 Methodology
+
+The methodology for this Intrusion Detection System project follows a systematic, end-to-end pipeline to ensure robust and reproducible results across multiple datasets and models. The main steps are:
+
+1. **Data Acquisition**
+   - Download and organize benchmark datasets: CIC-IDS2017, NSL-KDD, UNSW-NB15, and ToN-IoT.
+   - Each dataset is stored in its dedicated folder with raw data, scripts, and results.
+
+2. **Data Preprocessing**
+   - Handle missing values, outliers, and inconsistent data entries.
+   - Encode categorical features using label encoding or one-hot encoding as appropriate.
+   - Normalize or standardize numerical features to ensure uniformity across features.
+   - For some datasets, merge and filter test sets (see `merge_and_filter_test_sets.py` in `cic-2017/`).
+   - Visualize data distributions and class imbalances (see `.png` plots in preprocessing folders).
+
+3. **Feature Selection**
+   - Apply statistical and model-based feature selection techniques:
+     - ANOVA F-test (e.g., in `feature_selection.ipynb`)
+     - XGBoost feature importance (see `feature_importance_xgboost.png`)
+     - Correlation analysis to remove redundant features (see `corr_heatmap.png`)
+   - Select top features for each dataset to improve model performance and reduce overfitting.
+
+4. **Model Training**
+   - Train classical machine learning models (Random Forest, XGBoost, Decision Tree, Logistic Regression, Naive Bayes) using scikit-learn and XGBoost libraries.
+   - Train deep learning models (CNN) using TensorFlow/Keras, especially for complex datasets like UNSW-NB15.
+   - Use cross-validation and hyperparameter tuning where appropriate.
+   - Training scripts and notebooks are provided in each dataset folder (e.g., `nsl_kdd.ipynb`, `unsw_cnn_attack_type_full.py`).
+
+5. **Model Evaluation**
+   - Evaluate models using metrics such as Accuracy, Precision, Recall, F1-Score, and ROC-AUC.
+   - Generate confusion matrices, ROC curves, and feature importance plots for each experiment.
+   - Save all evaluation results as `.png` files in the respective dataset folders.
+
+6. **Result Analysis & Comparison**
+   - Compare model performance across datasets and feature selection strategies.
+   - Analyze the impact of feature selection on accuracy and generalization.
+   - Summarize findings in the README and through visualizations.
+
+**References to scripts and notebooks:**
+- Preprocessing and feature selection: `feature_selection.ipynb`, `preprocessing/` scripts
+- Model training: `nsl_kdd.ipynb`, `unsw_cnn_attack_type_full.py`, `ton_iot_xgboost_multiclass_ids.py`
+- Evaluation and visualization: `.png` result files in each dataset folder
+
+This structured methodology ensures that the IDS is rigorously tested and benchmarked, providing reliable insights into the effectiveness of different models and feature selection techniques for intrusion detection.
+
+---
+
 ## 📁 Datasets Used
 
 | Dataset         | Description                                                                                       |
@@ -80,10 +127,17 @@ Project_Nishant_bhardwaj/
 - **Convolutional Neural Network (CNN)**: For attack-type classification, especially on UNSW-NB15
 - **Frameworks**: Keras and TensorFlow for deep learning models
 
-### 🔍 Feature Selection
-- **ANOVA F-test**
-- **XGBoost Feature Importance**
-- **Correlation Analysis**
+---
+
+## 🧪 Feature Selection
+
+Feature selection is a critical step in building effective intrusion detection models. By selecting the most relevant features, we reduce dimensionality, improve model interpretability, and often boost classification performance. This project employs several feature selection techniques:
+
+- **ANOVA F-test**: Used to identify features with the strongest relationship to the output variable. Applied in the `feature_selection.ipynb` notebook in the `cic-2017/` folder.
+- **XGBoost Feature Importance**: Leverages the built-in feature importance scores from XGBoost models to rank and select top features. Visualizations and selection scripts are provided in each dataset folder (e.g., `feature_importance_xgboost.png`).
+- **Correlation Analysis**: Examines the correlation matrix to remove highly correlated (redundant) features, improving model generalization. See correlation heatmaps in the `preprocessing/` subfolders (e.g., `corr_heatmap.png`).
+
+Feature selection results and visualizations are available as `.png` files in the respective dataset folders. The selected features are then used for model training and evaluation, leading to improved accuracy and reduced overfitting.
 
 ---
 
