@@ -1,8 +1,9 @@
-# 🔐 Intrusion Detection System (IDS) using Machine Learning & Deep Learning
+# Intrusion Detection System (IDS) using Machine Learning & Deep Learning
+Intrusion Detection System using Machine Learning and Deep Learning across CIC-IDS2017, NSL-KDD, ToN-IoT, and UNSW-NB15 datasets.
 
 A comprehensive Intrusion Detection System leveraging both classical Machine Learning and Deep Learning models across multiple cybersecurity benchmark datasets, including CIC-IDS2017, NSL-KDD, UNSW-NB15, and ToN-IoT.
 
-> 🚨 **Detects network attacks like DoS, Probe, R2L, U2R, Botnet, and more using supervised learning models.**
+> **Detects network attacks like DoS, Probe, R2L, U2R, Botnet, and more using supervised learning models.**
 
 ---
 
