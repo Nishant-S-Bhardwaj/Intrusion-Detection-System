@@ -1,0 +1,18 @@
+===NSL_KDD===
+===DCNN===
+Accuracy: 0.9894
+Precision: 0.9895
+Recall: 0.9894
+F1-score: 0.9893
+
+===XGBoost===
+Accuracy: 0.9936
+Precision: 0.9939
+Recall: 0.9936
+F1-score: 0.9936
+
+===RandomForest===
+Accuracy: 0.9927
+Precision: 0.9929
+Recall: 0.9927
+F1-score: 0.9928
